@@ -1,0 +1,48 @@
+services:
+    kane_menicou_fast_controller.chain.api_response_transformer_chain:
+        class: KaneMenicou\FastControllerBundle\Chain\ResponseTransformerChain
+
+    kane_menicou_fast_controller.chain.view_response_transformer_chain:
+        class: KaneMenicou\FastControllerBundle\Chain\ResponseTransformerChain
+
+    kane_menicou_fast_controller.crud_route_loader:
+        class: KaneMenicou\FastControllerBundle\Loader\CrudRouteLoader
+        tags:
+          - { name: routing.loader }
+        arguments: ['@kane_menicou_fast_controller.model_config.router_crud_route_config']
+
+    kane_menicou_fast_controller.transformer.json_transformer:
+        class: KaneMenicou\FastControllerBundle\Transformer\Response\JsonTransformer
+        tags:
+          - { name: kane_menicou_fast_controller.api_response_transformer }
+
+    kane_menicou_fast_controller.transformer.twig_html_transformer:
+        class: KaneMenicou\FastControllerBundle\Transformer\Response\TwigHtmlTransformer
+        tags:
+          - { name: kane_menicou_fast_controller.view_response_transformer }
+        arguments:
+          - '@twig'
+
+    kane_menicou_fast_controller.transformer.entity_transformer:
+        class: KaneMenicou\FastControllerBundle\Transformer\EntityTransformer
+
+    kane_menicou_fast_controller.twig_extension.entity_transversing_extension:
+        class: KaneMenicou\FastControllerBundle\Twig\Extension\EntityTransversingExtension
+        tags:
+            - { name: twig.extension }
+        arguments:
+           - '@kane_menicou_fast_controller.transformer.entity_transformer'
+           - '@kane_menicou_fast_controller.retriever.doctrine_id_retriever'
+
+    kane_menicou_fast_controller.twig_extension.type_extension:
+        class: KaneMenicou\FastControllerBundle\Twig\Extension\TypeExtension
+        tags:
+            - { name: twig.extension }
+
+    kane_menicou_fast_controller.retriever.doctrine_id_retriever:
+        class: KaneMenicou\FastControllerBundle\Retriever\DoctrineIdRetriever
+        arguments: ['@Doctrine\ORM\EntityManagerInterface']
+
+    kane_menicou_fast_controller.model_config.router_crud_route_config:
+        class: KaneMenicou\FastControllerBundle\Model\Config\RouterCrudRouteConfig
+        arguments: ['%fast.controller.config%']

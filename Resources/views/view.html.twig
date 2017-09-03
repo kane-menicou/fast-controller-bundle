@@ -1,0 +1,27 @@
+{% extends '@FastController/base.html.twig' %}
+{% block title %}
+    {{ entity|shortName }} - {{ entity|id }}
+{% endblock %}
+{% block body %}
+    <div class="crud-entity-top-bar">
+        <h1 class="crud-entity-title">{{ entity|shortName }} {{ entity|id }}</h1>
+        <a class="crud-entity-edit-url" href="{{ path(entity|shortName|lower  ~ '_edit', {'id': entity|id}) }}">
+            Edit
+        </a>
+    </div>
+    <div class="crud-entity-body">
+        {% for key, property in getEntitiesProperties(entity) %}
+            {% if property|isDateTime %}
+                {% include '@FastController/partitals/key-value.html.twig' with {
+                'key': key,
+                'value': property|date('d-m-Y')
+                } only %}
+            {% else %}
+                {% include '@FastController/partitals/key-value.html.twig' with {
+                'key': key,
+                'value': property
+                } only %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
