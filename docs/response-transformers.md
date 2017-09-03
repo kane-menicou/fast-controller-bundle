@@ -1,5 +1,4 @@
-[Home](index.md)
-#Response Transformers
+# Response Transformers
 
 Response transformers are custom transformer which transform entities into valid responses for your routes.
 
@@ -11,7 +10,7 @@ The bundle comes with the following preconfigured:
 | Xml         | Xml        | Yes  |
 | HTML (Twig) | TwigHtml   | No   |
 
-##Adding a custom Response Transformer
+## Adding a custom Response Transformer
 
 Create your response transformer
 

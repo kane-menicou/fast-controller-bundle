@@ -1,9 +1,8 @@
-[Home](index.md)
-#Routes
+# Routes
 
 How to add CRUD routes for doctrine entities.
 
-##Adding a CRUD routes
+## Adding a CRUD routes
 
 Firstly in your applications routing you need to specify the entities you would like to generate CRUD routes for.
 
@@ -41,7 +40,7 @@ Delete `/blog/1/delete` and `/api/blog/1/delete`
 
 Index `/blog` and `/api/blog`
 
-##Black listing routes
+## Black listing routes
 
 To remove routes for a certain entity do following.
 
