@@ -1,5 +1,5 @@
 {
-  "name": "KaneMenicou/FastControllerBundle",
+  "name": "kane-menicou/fast-controller-bundle",
   "description": "A bundle for creating crud controllers from config.",
   "type": "symfony-bundle",
   "authors": [
