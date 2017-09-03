@@ -2,6 +2,11 @@
   "name": "kane-menicou/fast-controller-bundle",
   "description": "A bundle for creating crud controllers from config.",
   "type": "symfony-bundle",
+  "config": {
+    "platform": {
+      "php": "7.1"
+    }
+  },
   "authors": [
     {
       "name": "Kane Menicou",
@@ -15,6 +20,9 @@
     "psr-0": {
       "": ""
     }
+  },
+  "require": {
+      "symfony/symfony": "2.8.*|3.*.*"
   },
   "target-dir": "KaneMenicou/FastControllerBundle",
   "extra": {
