@@ -1,0 +1,25 @@
+{
+  "name": "KaneMenicou/FastControllerBundle",
+  "description": "A bundle for creating crud controllers from config.",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Kane Menicou",
+      "email": "kanemenicou@gmail.com"
+    }
+  ],
+  "license": [
+    "MIT"
+  ],
+  "autoload": {
+    "psr-0": {
+      "": ""
+    }
+  },
+  "target-dir": "KaneMenicou/FastControllerBundle",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "master"
+    }
+  }
+}
