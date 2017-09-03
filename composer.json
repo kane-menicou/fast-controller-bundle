@@ -19,7 +19,7 @@
   "target-dir": "KaneMenicou/FastControllerBundle",
   "extra": {
     "branch-alias": {
-      "dev-master": "master"
+      "master-dev": "master-dev"
     }
   }
 }
